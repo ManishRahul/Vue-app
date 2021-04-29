@@ -3,14 +3,7 @@ const x = new Vue({
 
         el : "#app",
         data : {
-            // message : "Hi I am Rahul!!!",
-            // isDisable : true,
-            // isBold : "<b>Text in Bold</b>",
-            // status : "danger",
-            // isPromoted : true,
-            // isTrue : false,
-            // highlight : "red",
-            // names : ["Manish","Rahul","Brucelee"],
+            
             title : "",
             titles : [],
 
@@ -18,10 +11,11 @@ const x = new Vue({
             todos : [] ,  // list of todos
         
             copytodos : [] , //copies the items from todos list
-            task : "tasks",
-            selectedIndex : null,
-            isEditing : false,
-            isTodoClicked : false
+            task : "tasks", //this is an id created for the css
+            selectedIndex : null, //if edit button is clicked, then this stores the index of the particular element.
+                
+            isEditing : false, //if edit button is clicked, then this becomes true
+            isOkClicked : false //if OK button is clicked, then this becomes true. It is used in v-if condition.
         },
         methods : {
             addtodo(){
@@ -34,7 +28,7 @@ const x = new Vue({
                 this.copytodos = this.todos
                 this.title = ""
                 // this.todos = "" 
-                this.isTodoClicked = true
+                this.isOkClicked = true
                  
             },
 
