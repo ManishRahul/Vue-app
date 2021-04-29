@@ -1,0 +1,57 @@
+<html>
+<head>
+<title> Practise App </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    
+<div style="padding-top:90px;" class="container" id="app">
+    <h1> The To-do list </h1> <br>
+Enter a title : <br>
+<input type="text" v-model="title"  /> <br><br>
+
+Type in your todos <br>
+<div v-if="!isEditing">
+<input type="text" v-model="todo" required  />
+<input type="submit" value="Add" class="btn btn-dark" @click="addtodo" />
+</div>
+<div v-else>
+<input type="text" v-model="todo" required  />
+<input type="submit" value="Update" class="btn btn-dark" @click="updatetodo" />
+</div>
+
+<ol style="list-style: none;"> 
+    <li v-for="todo in todos" v-if="!isTodoClicked"> {{todo}} </li>
+    <!--v-if="todos!=null" -->
+    <li v-else> </li> 
+</ol>
+<button v-on:click="display_Title_and_Todo" class="btn btn-success">OK</button>
+
+<div style="padding-top:100px; padding-left:50px;" v-bind:id="task"> 
+<h2> <u>Your list :</u> </h2>
+<ol type="i"> 
+    <li v-for="title in titles" > <b>{{title}} </b></li>
+
+    <ol>
+        <li v-for="copytodo, index) in copytodos"> 
+            {{copytodo}}
+            <button @click="edit_Todo(index,copytodo)" class="btn btn-info">Edit</button>
+            <button @click="delete_Todo(index)" class="btn btn-danger">Delete</button>
+        </li>
+    </ol>
+    
+</ol>
+</div>
+
+
+</div>
+<link rel="stylesheet" href="app.css">
+<script src="./app.js"> </script>
+</body>
+</html>
