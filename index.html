@@ -27,7 +27,7 @@ Type in your todos <br>
 </div>
 
 <ol style="list-style: none;"> 
-    <li v-for="todo in todos" v-if="!isTodoClicked"> {{todo}} </li>
+    <li v-for="todo in todos" v-if="!isOkClicked"> {{todo}} </li>
     <li v-else> </li> 
 </ol>
 <button v-on:click="display_Title_and_Todo" class="btn btn-success">OK</button>
