@@ -24,11 +24,19 @@ const x = new Vue({
             },
 
             display_Title_and_Todo(){
-                this.titles.push(this.title)
-                this.copytodos = this.todos
-                this.title = ""
-                // this.todos = "" 
-                this.isOkClicked = true
+               if(document.getElementById("textbox1").value != ""){
+                    //document.getElementById("title_todos").innerHTML = null
+                    this.titles.push(this.title)
+                    this.copytodos = this.todos
+                    this.title = ""
+                     // this.todos = "" 
+                     this.isOkClicked = true
+                     // this.isEmpty = false
+                }
+                else if(document.getElementById("textbox1").value == ""){
+                    //document.getElementById("title_todos").innerHTML = "working"
+                    console.log(" It's working")
+                }
                  
             },
 
